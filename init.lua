@@ -161,7 +161,9 @@ require('lazy').setup({
       return vim.fn.executable 'make' == 1
     end,
   },
-
+  {
+    'HiPhish/nvim-ts-rainbow2'
+  },
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
@@ -316,6 +318,11 @@ require('nvim-treesitter.configs').setup {
         ['ic'] = '@class.inner',
       },
     },
+    -- rainbow parenths
+    rainbow = {
+      enable = true,
+      auto_install = true
+    },
     move = {
       enable = true,
       set_jumps = true, -- whether to set jumps in the jumplist
@@ -351,7 +358,7 @@ require('nvim-treesitter.configs').setup {
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
 vim.keymap.set('n', '<leader>nd', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
-vim.keymap.set('n', '<leader>le', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
+vim.keymap.set('n', '<leader>de', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 -- LSP settings.
