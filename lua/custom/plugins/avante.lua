@@ -14,7 +14,12 @@ return {
         max_tokens = 8192,
       },
     },
+    cursor_applying_provider = 'litellm',
     provider = 'litellm',
+    behaviour = {
+      --- ... existing behaviours
+      enable_cursor_planning_mode = true, -- enable cursor planning mode!
+    },
     system_prompt = function()
       local hub = require('mcphub').get_hub_instance()
       return hub and hub:get_active_servers_prompt() or ''
@@ -27,6 +32,9 @@ return {
     end,
   },
 
+  keys = {
+    { '<leader>ae', '<cmd>AvanteClear<cr>', desc = 'Avante: Clear Chat', silent = true },
+  },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = 'make',
   -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows

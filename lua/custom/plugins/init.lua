@@ -5,6 +5,14 @@
 --
 -- live grep keymap
 --
+--
+
+local map = function(keys, func, desc, mode)
+  mode = mode or 'n'
+  vim.keymap.set(mode, keys, func, { desc = 'LSP: ' .. desc })
+end
+
+map('<leader>df', vim.diagnostic.open_float, 'Describe Float')
 return {
   {
     'ThePrimeagen/refactoring.nvim',
