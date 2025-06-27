@@ -8,9 +8,9 @@ return {
     vendors = {
       ['litellm'] = {
         __inherited_from = 'openai',
-        endpoint = 'https://lite-llm.mymaas.net/v1/',
+        endpoint = 'https://openrouter.ai/api/v1',
         api_key_name = 'OPENAI_API_KEY',
-        model = 'vertex-claude-4-sonnet',
+        model = 'anthropic/claude-opus-4',
         max_tokens = 8192,
       },
     },
@@ -18,18 +18,18 @@ return {
     provider = 'litellm',
     behaviour = {
       --- ... existing behaviours
-      enable_cursor_planning_mode = true, -- enable cursor planning mode!
+      enable_cursor_planning_mode = false, -- enable cursor planning mode!
     },
-    system_prompt = function()
-      local hub = require('mcphub').get_hub_instance()
-      return hub and hub:get_active_servers_prompt() or ''
-    end,
+    --    system_prompt = function()
+    --      local hub = require('mcphub').get_hub_instance()
+    --      return hub and hub:get_active_servers_prompt() or ''
+    --    end,
     -- Using function prevents requiring mcphub before it's loaded
-    custom_tools = function()
-      return {
-        require('mcphub.extensions.avante').mcp_tool(),
-      }
-    end,
+    --    custom_tools = function()
+    --      return {
+    --        require('mcphub.extensions.avante').mcp_tool(),
+    --      }
+    --    end,
   },
 
   keys = {
