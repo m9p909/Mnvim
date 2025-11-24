@@ -5,17 +5,17 @@ return {
   opts = {
     -- add any opts here
     -- for example
-    vendors = {
-      ['litellm'] = {
+    providers = {
+      openrouter = {
         __inherited_from = 'openai',
         endpoint = 'https://openrouter.ai/api/v1',
         api_key_name = 'OPENAI_API_KEY',
-        model = 'anthropic/claude-haiku-4.5',
+        model = 'openai/gpt-oss-120b:exacto',
         max_tokens = 8192,
       },
     },
-    cursor_applying_provider = 'litellm',
-    provider = 'litellm',
+    cursor_applying_provider = 'openrouter',
+    provider = 'openrouter',
     behaviour = {
       --- ... existing behaviours
       enable_cursor_planning_mode = false, -- enable cursor planning mode!
