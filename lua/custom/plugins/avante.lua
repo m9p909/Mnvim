@@ -10,7 +10,7 @@ return {
         __inherited_from = 'openai',
         endpoint = 'https://openrouter.ai/api/v1',
         api_key_name = 'OPENAI_API_KEY',
-        model = 'anthropic/claude-opus-4',
+        model = 'anthropic/claude-haiku-4.5',
         max_tokens = 8192,
       },
     },
