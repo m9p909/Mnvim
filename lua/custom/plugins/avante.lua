@@ -5,7 +5,8 @@ return {
   opts = {
     -- add any opts here
     -- for example
-    vendors = {
+    provider = 'copilot',
+    providers = {
       ['litellm'] = {
         __inherited_from = 'openai',
         endpoint = 'https://lite-llm.mymaas.net/v1/',
@@ -14,8 +15,6 @@ return {
         max_tokens = 8192,
       },
     },
-    cursor_applying_provider = 'litellm',
-    provider = 'litellm',
     behaviour = {
       --- ... existing behaviours
       enable_cursor_planning_mode = true, -- enable cursor planning mode!
